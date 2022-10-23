@@ -8,6 +8,10 @@
 <script lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
 import './assets/tailwind.css';
+
+export default{
+  
+}
 </script>
 <style scoped>
 
