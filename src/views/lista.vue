@@ -1,5 +1,6 @@
 <template lang="">
     <div class="overflow-x-auto relative">
+        <router-link class="mb-5 w-30" :to="{name:'addcliente'}" >Agregar Usuario</router-link>
         <table class="w-full text-sm text-center text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                 <tr>
