@@ -57,7 +57,8 @@ export const useTodoStore = defineStore({
     async deleteAll(id:number):Promise<void>{
       const data = this.persons.find((item:any) => item.id === id)
       console.log(data);
-      data?.transactions.forEach(async(element:any) => {
+      data?.transactions.forEach(async (element:any) => {
+        console.log(element.id);
         await this.deleteTransaction(element.id)
       });
       const { data: users, error } = await supabase
@@ -65,12 +66,13 @@ export const useTodoStore = defineStore({
         .delete()
         .match({ id: id });
       if (error) throw error;
+      
     },
 
     async listar(): Promise<void> {
       const { data: users, error } = await supabase
         .from("users")
-        .select("*,transactions(user_id,transaction,amount,date,status)")
+        .select("*,transactions(id, user_id,transaction,amount,date,status)")
         .order("id", { ascending: false });
       if (error) throw error;
       console.log(users);
