@@ -28,4 +28,6 @@ export type Transactions = {
   date: string;
   status: boolean;
 }
-  
+export interface HandleSubmit {
+  schema: Object;
+}
